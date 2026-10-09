@@ -1,0 +1,39 @@
+ID,Epic,Requirement,Type,Priority,Estimate,Status,Source,DependsOn
+FR-01,E1 Employee Management,"Add, edit, and deactivate employee records (name, contact, role, pay rate)",Functional,Must,5,Proposed,Elicited,
+FR-02,E1 Employee Management,"Assign one or more roles/positions to an employee",Functional,Should,3,Proposed,Elicited,FR-01
+FR-03,E1 Employee Management,"Set employment type and weekly min/max hours per employee",Functional,Must,3,Proposed,Elicited,FR-01
+FR-04,E2 Availability & Time-Off,"Employee submits recurring weekly availability as time ranges",Functional,Must,5,Proposed,Stakeholder,FR-01
+FR-05,E2 Availability & Time-Off,"Employee requests time off / blackout dates",Functional,Must,3,Proposed,Elicited,FR-01
+FR-06,E2 Availability & Time-Off,"Manager approves/denies time-off; approved blocks scheduling",Functional,Must,3,Proposed,Elicited,FR-05
+FR-07,E2 Availability & Time-Off,"Availability/time-off captured within operating window and time zone",Functional,Should,2,Proposed,Elicited,"FR-04, FR-29"
+FR-08,E3 Schedule Generation,"Auto-generate a draft weekly schedule from availability + coverage rules",Functional,Must,13,Proposed,Stakeholder,"FR-03, FR-04, FR-11"
+FR-09,E3 Schedule Generation,"Generator places shifts only within operating hours (default 8am-2am)",Functional,Must,3,Proposed,Stakeholder,"FR-08, FR-29"
+FR-10,E3 Schedule Generation,"Generator creates shifts of configurable length (default 6-10 hours)",Functional,Must,3,Proposed,Stakeholder,"FR-08, FR-30"
+FR-11,E3 Schedule Generation,"Define minimum staffing per time block; generator guarantees coverage",Functional,Must,8,Proposed,Elicited,FR-08
+FR-12,E3 Schedule Generation,"Generator never double-books an employee",Functional,Must,3,Proposed,Elicited,FR-08
+FR-13,E3 Schedule Generation,"Generator respects each employee's max weekly hours",Functional,Must,3,Proposed,Elicited,"FR-03, FR-08"
+FR-14,E3 Schedule Generation,"Manager manually edits the generated draft before publishing",Functional,Must,8,Proposed,Elicited,FR-08
+FR-15,E3 Schedule Generation,"Manager publishes/locks a schedule as the official version",Functional,Must,3,Proposed,Elicited,FR-14
+FR-16,E4 Coverage & Swaps,"Mark a shift as open/unfilled",Functional,Should,2,Proposed,Elicited,FR-14
+FR-17,E4 Coverage & Swaps,"Employee requests shift swap/pickup, subject to manager approval",Functional,Should,8,Proposed,Elicited,FR-15
+FR-18,E4 Coverage & Swaps,"Record a call-out; affected shift flagged open and re-offerable",Functional,Should,5,Proposed,Elicited,"FR-15, FR-16"
+FR-19,E5 Notifications,"Notify affected employees when a schedule is published",Functional,Should,5,Proposed,Elicited,"FR-15, FR-26"
+FR-20,E5 Notifications,"Notify affected employees when a shift changes",Functional,Should,3,Proposed,Elicited,"FR-17, FR-19"
+FR-21,E5 Notifications,"Manager chooses notification channel (in-app/email/SMS)",Functional,Could,5,Proposed,Elicited,FR-19
+FR-22,E6 Reporting & Labor Cost,"Show total scheduled hours per employee per week",Functional,Should,3,Proposed,Elicited,FR-15
+FR-23,E6 Reporting & Labor Cost,"Show estimated labor cost (pay rate x scheduled hours)",Functional,Could,3,Proposed,Elicited,"FR-01, FR-22"
+FR-24,E6 Reporting & Labor Cost,"Flag overtime / over-max hours before publishing",Functional,Should,3,Proposed,Elicited,"FR-13, FR-22"
+FR-25,E6 Reporting & Labor Cost,"Export or print the schedule (PDF and/or calendar feed)",Functional,Could,5,Proposed,Elicited,FR-15
+FR-26,E7 Authentication & Access,"Users create an account and log in",Functional,Must,5,Proposed,Elicited,
+FR-27,E7 Authentication & Access,"Role-based access (manager vs employee)",Functional,Must,5,Proposed,Elicited,FR-26
+FR-28,E7 Authentication & Access,"Users reset a forgotten password",Functional,Should,2,Proposed,Elicited,FR-26
+FR-29,E8 Business Rules,"Configure operating hours instead of hard-coding them",Functional,Must,3,Proposed,Stakeholder,
+FR-30,E8 Business Rules,"Configure shift-length rules and minimum rest between shifts",Functional,Should,3,Proposed,Elicited,FR-29
+FR-31,E8 Business Rules,"Support minor/labor-law constraints (e.g., under-18 limits)",Functional,Won't (this release),8,Proposed,Elicited,"FR-03, FR-30"
+NFR-01,E9 Quality Attributes,"Usability: non-technical owner generates+publishes a week in under 15 min",Non-Functional,Must,5,Proposed,Stakeholder,FR-08
+NFR-02,E9 Quality Attributes,"Performance: draft week for ~25 employees generates in under 10 seconds",Non-Functional,Should,3,Proposed,Elicited,FR-08
+NFR-03,E9 Quality Attributes,"Availability: reachable 24/7, >=99% monthly uptime",Non-Functional,Should,3,Proposed,Elicited,
+NFR-04,E9 Quality Attributes,"Security: hashed passwords, access-controlled PII, encrypted in transit",Non-Functional,Must,5,Proposed,Elicited,"FR-26, FR-27"
+NFR-05,E9 Quality Attributes,"Mobile-friendly: view schedule and submit availability from a phone",Non-Functional,Must,5,Proposed,Elicited,FR-04
+NFR-06,E9 Quality Attributes,"Low operating cost: runs on low-cost/free-tier infrastructure",Non-Functional,Should,2,Proposed,Stakeholder,
+NFR-07,E9 Quality Attributes,"Data durability: schedule and employee data are backed up",Non-Functional,Should,3,Proposed,Elicited,
